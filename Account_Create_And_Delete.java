@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import java.time.Duration;
 public class Task1 {
 	WebDriver driver;
 	@Test
@@ -42,6 +43,7 @@ public class Task1 {
 		driver.findElement(By.xpath("//*[@data-qa='create-account']")).click();
 		driver.findElement(By.xpath("//*[@data-qa=\"continue-button\"]")).click();
 //		delete the Account we created
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(By.xpath("//*[@href=\"/delete_account\"]")).click();
 		driver.findElement(By.xpath("//*[@data-qa=\"continue-button\"]")).click();
 		driver.quit();		
