@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
+import java.time.Duration;
 public class Task2 {
 	
 	WebDriver driver;
@@ -13,7 +13,7 @@ public class Task2 {
 			driver= new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("http://automationexercise.com");
-			
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.findElement(By.xpath("//a[@href='/products']")).click();
 			driver.findElement(By.xpath("//*[@href='/product_details/1']")).click();
 			driver.findElement(By.xpath("//input[@id='quantity']")).sendKeys("4");
